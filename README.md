@@ -31,3 +31,7 @@ and be included from `~/.gitconfig`.
 
 - Python ≥ 3.10, GTK 4, GtkSourceView 5, libadwaita, PyGObject, pycairo
 - Build: `meson`, `ninja`, `glib-compile-resources`
+
+## License
+
+GNU General Public License v3.0. See [LICENSE](LICENSE).

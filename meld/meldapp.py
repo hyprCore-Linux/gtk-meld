@@ -106,7 +106,7 @@ class MeldApp(Adw.Application):
             dialog = Adw.AboutDialog(
                 application_icon=meld.conf.APPLICATION_ID,
                 application_name=meld.conf.APPLICATION_NAME,
-                license_type=Gtk.License.GPL_2_0,
+                license_type=Gtk.License.GPL_3_0,
             )
         else:
             dialog = Adw.AboutDialog.new_from_appdata(
