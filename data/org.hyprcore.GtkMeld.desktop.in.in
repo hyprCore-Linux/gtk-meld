@@ -11,5 +11,5 @@ Type=Application
 Icon=@icon@
 MimeType=application/x-meld-comparison;
 StartupNotify=true
-StartupWMClass=org.neuronix.GtkMeld
+StartupWMClass=org.hyprcore.GtkMeld
 Categories=GTK;Development;

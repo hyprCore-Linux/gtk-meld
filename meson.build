@@ -28,8 +28,8 @@ dependency('py3cairo', version: '>= 1.15.0')
 is_devel = get_option('profile') == 'Devel'
 name_suffix = (is_devel ? ' (Development Snapshot)' : '')
 
-resource_base_id = 'org.neuronix.GtkMeld'
-application_id_no_profile = 'org.neuronix.GtkMeld'
+resource_base_id = 'org.hyprcore.GtkMeld'
+application_id_no_profile = 'org.hyprcore.GtkMeld'
 application_id = (is_devel ? application_id_no_profile + '.Devel' : application_id_no_profile)
 
 is_wheel = get_option('is_wheel')

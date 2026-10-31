@@ -1,7 +1,7 @@
 metainfo_file = i18n.merge_file(
   input: configure_file(
-    input: files('org.neuronix.GtkMeld.metainfo.xml.in.in'),
-    output: 'org.neuronix.GtkMeld.metainfo.xml.in',
+    input: files('org.hyprcore.GtkMeld.metainfo.xml.in.in'),
+    output: 'org.hyprcore.GtkMeld.metainfo.xml.in',
     configuration: {'appid': application_id_no_profile},
   ),
   output: '@0@.metainfo.xml'.format(application_id_no_profile),

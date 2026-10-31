@@ -217,9 +217,9 @@ def _ensure_suite_chunk_colours() -> bool:
             p = p.parent
         cands.extend(
             (
-                Path("/usr/local/lib/neuronix/gtk-apps/python"),
-                Path("/usr/local/lib/neuronix/gtk-apps/gtk-theme/python"),
-                Path("/usr/share/neuronix/gtk-theme/python"),
+                Path("/usr/local/lib/hyprcore/gtk-apps/python"),
+                Path("/usr/local/lib/hyprcore/gtk-apps/gtk-theme/python"),
+                Path("/usr/share/hyprcore/gtk-theme/python"),
             )
         )
         for rel in cands:

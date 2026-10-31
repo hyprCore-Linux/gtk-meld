@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/meld/icons">
-    <file>scalable/apps/org.neuronix.GtkMeld.svg</file>
-    <file>scalable/apps/org.neuronix.GtkMeld.Devel.svg</file>
+    <file>scalable/apps/org.hyprcore.GtkMeld.svg</file>
+    <file>scalable/apps/org.hyprcore.GtkMeld.Devel.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/git.svg">icons/git.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/vc-pull-symbolic.svg">icons/vc-pull-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/vc-push-symbolic.svg">icons/vc-push-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/symbolic-link-symbolic">icons/symbolic-link-symbolic.svg</file>
   </gresource>
   <gresource prefix="/org/gnome/meld">
-    <file preprocess="xml-stripblanks" alias="org.neuronix.GtkMeld.metainfo.xml">data/org.neuronix.GtkMeld.metainfo.xml</file>
+    <file preprocess="xml-stripblanks" alias="org.hyprcore.GtkMeld.metainfo.xml">data/org.hyprcore.GtkMeld.metainfo.xml</file>
     <file>gtk/help-overlay.ui</file>
     <file>icons/16x16/actions/meld-change-apply-left.png</file>
     <file>icons/16x16/actions/meld-change-apply-right.png</file>

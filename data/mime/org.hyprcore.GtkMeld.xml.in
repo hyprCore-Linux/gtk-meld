@@ -3,6 +3,6 @@
    <mime-type type="application/x-meld-comparison">
      <comment>GTK Meld comparison description</comment>
      <glob pattern="*.meldcmp"/>
-     <icon name="org.neuronix.GtkMeld"/>
+     <icon name="org.hyprcore.GtkMeld"/>
    </mime-type>
 </mime-info>

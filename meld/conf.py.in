@@ -7,7 +7,7 @@ __package__ = "meld"
 __version__ = "3.99.0"
 
 APPLICATION_NAME = 'GTK Meld'
-APPLICATION_ID = 'org.neuronix.GtkMeld'
+APPLICATION_ID = 'org.hyprcore.GtkMeld'
 SETTINGS_SCHEMA_ID = 'org.gnome.meld'
 RESOURCE_BASE = '/org/gnome/meld'
 
