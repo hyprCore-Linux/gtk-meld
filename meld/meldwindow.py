@@ -93,6 +93,7 @@ class MeldWindow(Adw.ApplicationWindow):
 
     folder_filter_button: Gtk.Button = Gtk.Template.Child()
     gear_menu_button = Gtk.Template.Child()
+    header_bar = Gtk.Template.Child()
     next_conflict_button = Gtk.Template.Child()
     tabview = Gtk.Template.Child()
     previous_conflict_button = Gtk.Template.Child()
@@ -162,7 +163,7 @@ class MeldWindow(Adw.ApplicationWindow):
         self._setup_gtk_theme()
 
     def _setup_gtk_theme(self) -> None:
-        """Fold suite Profile themes into the existing gear menu (View)."""
+        """Fold suite Profile into View, then install left title + reveal menubar."""
         try:
             gtk_theme = _load_gtk_theme()
         except ImportError:
@@ -180,6 +181,17 @@ class MeldWindow(Adw.ApplicationWindow):
             section_id="profile-section",
             before_section_id="application-section",
         )
+        try:
+            self.gear_menu_button.set_visible(False)
+            _title, _ham, _bar, content = gtk_theme.install_reveal_menubar(
+                self, self.header_bar, "GTK Meld", menu
+            )
+            gtk_theme.pack_reveal_controls(self, self.header_bar)
+            self._reveal_content = content
+        except Exception:
+            log.exception("Failed to install reveal menubar; keeping gear menu")
+            self.gear_menu_button.set_visible(True)
+            self._reveal_content = None
         # Keep SourceView + diff chunk colours aligned with the suite Profile.
         self._apply_suite_profile(gtk_theme.load_profile())
         gtk_theme.watch_theme(self._apply_suite_profile)
@@ -360,17 +372,24 @@ class MeldWindow(Adw.ApplicationWindow):
         self._sync_window_title()
 
     def _sync_window_title(self) -> None:
-        """Window title drives Hyprland: diffs fill HDMI; the launcher stays compact."""
+        """Window title drives Hyprland: diffs fill HDMI; the launcher stays compact.
+
+        Left header brand stays "GTK Meld"; center shows the open comparison.
+        """
         page = self.tabview.get_selected_page()
-        if not page:
-            self.set_title("GTK Meld")
-            return
-        child = page.get_child()
-        if isinstance(child, (FileDiff, DirDiff, ImageDiff, VcView)):
-            label = (getattr(child, "tab_title", None) or "").strip()
-            self.set_title(label or "Diff — GTK Meld")
+        content = ""
+        if page:
+            child = page.get_child()
+            if isinstance(child, (FileDiff, DirDiff, ImageDiff, VcView)):
+                content = (getattr(child, "tab_title", None) or "").strip()
+        if content:
+            self.set_title(f"{content} — GTK Meld")
         else:
             self.set_title("GTK Meld")
+        label = getattr(self, "_reveal_content", None)
+        if label is not None:
+            label.set_text(content)
+            label.set_visible(bool(content))
 
     def action_new_tab(self, action, parameter):
         self.append_new_comparison()

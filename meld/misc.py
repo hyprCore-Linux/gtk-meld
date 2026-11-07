@@ -86,7 +86,12 @@ def error_dialog(primary: str, secondary: str) -> Gtk.ResponseType:
 
     Primary must be plain text. Secondary must be valid markup.
     """
-    Gtk.AlertDialog(message=primary, detail=secondary, modal=True).show()
+    try:
+        import gtk_theme
+
+        gtk_theme.present_message(None, primary, secondary)
+    except Exception:
+        Gtk.AlertDialog(message=primary, detail=secondary, modal=True).show()
 
 
 def user_critical(primary: str, message: str) -> Callable[[Callable], Callable]:
